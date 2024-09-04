@@ -1,5 +1,6 @@
 package com.paragon.composechallenges
 
+import ViewPagerPagesStateManagement
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -24,6 +25,7 @@ sealed class NavigationItem(var route: String) {
     data object NestedViewPager : NavigationItem("NestedViewPager")
     data object DynamicViewPager : NavigationItem("DynamicViewPager")
     data object CarouselViewPager : NavigationItem("CarouselViewPager")
+    data object ViewPagerPagesStateManagement : NavigationItem("ViewPagerPagesStateManagement")
 }
 
 
@@ -55,6 +57,9 @@ class MainActivity : ComponentActivity() {
                             }
                             composable(NavigationItem.CarouselViewPager.route) {
                                 CarouselImplementationWithTabIndicators()
+                            }
+                            composable(NavigationItem.ViewPagerPagesStateManagement.route) {
+                                ViewPagerPagesStateManagement()
                             }
                         }
                     }

@@ -69,15 +69,23 @@ fun DynamicallyAddRemovePagesInViewPager() {
         Row(horizontalArrangement = Arrangement.Center, modifier = Modifier
             .weight(0.2f)
             .fillMaxWidth() , verticalAlignment = Alignment.CenterVertically) {
-            Button(onClick = { items = items + "Page ${items.size + 1}" }) { Text("Add Page") }
+            Button(onClick = {
+                items = items + "Page ${items.size + 1}"
+                scope.launch {
+                    if (items.isNotEmpty() && items.size > 1) pagerState.animateScrollToPage(items.size)
+                }
+
+            }) { Text("Add Page") }
             Spacer(modifier = Modifier.width(8.dp))
             Button(onClick = {
-                val randomIndex = Random.nextInt(items.size)
-                scope.launch { pagerState.animateScrollToPage(randomIndex) }
-                val mList = items.toMutableList()
-                mList.add(randomIndex, "Random $randomIndex")
-                items = mList
-                Toast.makeText(context, "Inserted at Index $randomIndex", Toast.LENGTH_SHORT).show()
+              try {
+                  val randomIndex = Random.nextInt(items.size)
+                  scope.launch { pagerState.animateScrollToPage(randomIndex) }
+                  val mList = items.toMutableList()
+                  mList.add(randomIndex, "Random $randomIndex")
+                  items = mList
+                  Toast.makeText(context, "Inserted at Index $randomIndex", Toast.LENGTH_SHORT).show()
+              }catch (_:Exception){}
             }) { Text("Add Random") }
             Spacer(modifier = Modifier.width(8.dp))
             Button(onClick = {items = items.dropLast(1) }) { Text("Remove Last") }

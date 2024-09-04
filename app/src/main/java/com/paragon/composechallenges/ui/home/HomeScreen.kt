@@ -23,7 +23,8 @@ fun HomeScreen(onNavigate: (NavigationItem) -> Unit) {
     val list = listOf(
         NavigationItem.NestedViewPager,
         NavigationItem.DynamicViewPager,
-        NavigationItem.CarouselViewPager
+        NavigationItem.CarouselViewPager,
+        NavigationItem.ViewPagerPagesStateManagement
     )
     LazyColumn(
         modifier = Modifier

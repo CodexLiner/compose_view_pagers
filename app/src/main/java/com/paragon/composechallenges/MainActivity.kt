@@ -6,11 +6,13 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -38,8 +40,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
             ComposeChallengesTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Column(modifier = Modifier.fillMaxSize().padding(innerPadding), horizontalAlignment = Alignment.CenterHorizontally) {
+                Scaffold(contentWindowInsets = WindowInsets(0, 0, 0, 0), modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    Column(modifier = Modifier.fillMaxSize().padding(0.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                         NavHost(
                             navController = navController,
                             startDestination = NavigationItem.HomeScreen.route

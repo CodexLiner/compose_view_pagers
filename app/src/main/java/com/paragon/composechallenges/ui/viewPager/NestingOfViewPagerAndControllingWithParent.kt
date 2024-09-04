@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.pager.HorizontalPager
@@ -55,7 +56,7 @@ fun NestingOfViewPagerAndControllingWithParent() {
     val childCurrentPage = remember { mutableStateMapOf<Int , Int?>() }
 
     Column {
-        HorizontalPager(modifier = Modifier.wrapContentSize().weight(0.9f), state = pagerState) {
+        HorizontalPager(modifier = Modifier.safeDrawingPadding().wrapContentSize().weight(0.9f), state = pagerState) {
             when (it) {
                 0 , 3, 7 , 9  -> {
                     ParentContentItem(

@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -28,8 +29,7 @@ fun HomeScreen(onNavigate: (NavigationItem) -> Unit) {
     )
     LazyColumn(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(vertical = 10.dp, horizontal = 10.dp),
+            .fillMaxSize().safeDrawingPadding().padding(vertical = 10.dp, horizontal = 10.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         itemsIndexed(list) { _, item ->

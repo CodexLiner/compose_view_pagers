@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
@@ -40,6 +41,7 @@ fun DynamicallyAddRemovePagesInViewPager() {
     Column {
         HorizontalPager(modifier = Modifier
             .fillMaxSize()
+            .safeDrawingPadding()
             .weight(0.8f) , state = pagerState) { page ->
             Column(
                 verticalArrangement = Arrangement.Center,

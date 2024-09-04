@@ -21,10 +21,10 @@ import com.paragon.composechallenges.NavigationItem
 @Composable
 fun HomeScreen(onNavigate: (NavigationItem) -> Unit) {
     val list = listOf(
-        NavigationItem.NestedViewPager,
         NavigationItem.DynamicViewPager,
         NavigationItem.CarouselViewPager,
-        NavigationItem.ViewPagerPagesStateManagement
+        NavigationItem.ViewPagerPagesStateManagement,
+        NavigationItem.NestedViewPager,
     )
     LazyColumn(
         modifier = Modifier

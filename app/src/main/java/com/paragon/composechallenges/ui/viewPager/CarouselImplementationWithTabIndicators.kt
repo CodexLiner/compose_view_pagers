@@ -49,8 +49,8 @@ import kotlinx.coroutines.withContext
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun CarouselImplementationWithTabIndicators() {
-    val pagerState = rememberPagerState(pageCount = { 8 })
-    val itemList = listOf(R.mipmap.car0,R.mipmap.car5, R.mipmap.car1, R.mipmap.car2,R.mipmap.car6, R.mipmap.car3, R.mipmap.car4 , R.mipmap.car7)
+    val itemList = listOf(R.mipmap.car8 ,R.mipmap.car9 , R.mipmap.car10 , R.mipmap.car0,R.mipmap.car5, R.mipmap.car1, R.mipmap.car2,R.mipmap.car6, R.mipmap.car3, R.mipmap.car4 , R.mipmap.car7)
+    val pagerState = rememberPagerState(pageCount = { itemList.size })
     var targetGradientColors by remember {
         mutableStateOf(
             listOf(
@@ -129,7 +129,8 @@ fun CarouselItem(id: Int, gradientColor: (List<Color>) -> Unit = {}) {
             val palette = Palette.from(it).generate()
             colors = listOf(
                 Color(palette.getDominantColor(Color.Red.toArgb())).copy(0.5f),
-                Color(palette.getVibrantColor(Color.Yellow.toArgb())).copy(0.05f)
+                Color(palette.getLightVibrantColor(Color.Yellow.toArgb())).copy(0.5f),
+                Color(palette.getVibrantColor(Color.Yellow.toArgb())).copy(0.5f)
             )
         }
     }
